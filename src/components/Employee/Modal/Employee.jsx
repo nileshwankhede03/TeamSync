@@ -44,10 +44,6 @@ const Employee = ({
 
   const [districts, setDistricts] = useState([]);
 
-  // ==============================
-  // Common Input Change
-  // ==============================
-
   const handleChange = (field, value) => {
     setFormData((prev) => ({
       ...prev,
@@ -61,10 +57,6 @@ const Employee = ({
       }));
     }
   };
-
-  // ==============================
-  // Country Change
-  // ==============================
 
   const handleCountryChange = (countryName) => {
     const countryCode = getCountryCode(countryName);
@@ -91,10 +83,6 @@ const Employee = ({
     }));
   };
 
-  // ==============================
-  // State Change
-  // ==============================
-
   const handleStateChange = (stateCode) => {
     const countryCode = getCountryCode(formData.country);
 
@@ -115,15 +103,10 @@ const Employee = ({
     }));
   };
 
-  // ==============================
-  // Submit
-  // ==============================
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const validationErrors = validateEmployeeForm(formData);
-    console.log(validationErrors);
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) {
