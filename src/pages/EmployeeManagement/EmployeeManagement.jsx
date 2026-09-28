@@ -253,8 +253,8 @@ const EmployeeManagement = () => {
           <div className="mt-5 w-full overflow-hidden rounded-[7px] border border-[#E7E9ED]">
             <div className="max-h-[calc(100vh-300px)] w-full overflow-auto">
               <Table className="w-full min-w-[760px] border-collapse">
-                <TableHeader>
-                  <TableRow className="border-b border-[#E7E9ED]">
+                <TableHeader className={`sticky top-0 z-10 bg-white`}>
+                  <TableRow className="border-b border-[#E7E9ED] bg-white">
                     <TableCell
                       isHeader
                       className="px-5 py-4 text-left text-sm font-normal text-[#858B98]"
