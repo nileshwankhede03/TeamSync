@@ -311,6 +311,7 @@ const Employee = ({
                 onChange={handleCountryChange}
                 options={countryOptions}
                 placeholder="Select Country"
+                error={!!errors.country}
               />
 
               {errors.country && (
@@ -335,6 +336,7 @@ const Employee = ({
                   formData.country ? 'Select State' : 'Select Country First'
                 }
                 disabled={!formData.country}
+                error={!!errors.state}
               />
 
               {errors.state && (
@@ -357,6 +359,7 @@ const Employee = ({
                   formData.state ? 'Select District' : 'Select State First'
                 }
                 disabled={!formData.state}
+                error={!!errors.district}
               />
 
               {errors.district && (
