@@ -37,11 +37,8 @@ const Employee = ({
   loading = false,
 }) => {
   const [formData, setFormData] = useState(initialFormData);
-
   const [errors, setErrors] = useState({});
-
   const [states, setStates] = useState([]);
-
   const [districts, setDistricts] = useState([]);
 
   const handleChange = (field, value) => {
