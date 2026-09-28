@@ -50,10 +50,8 @@ const employeeSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    // ==========================================
-    // GET ALL EMPLOYEES
-    // ==========================================
 
+    // GET ALL EMPLOYEES
     builder
       .addCase(fetchEmployees.pending, (state) => {
         state.loading = true;
