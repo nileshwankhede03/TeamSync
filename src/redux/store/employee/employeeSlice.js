@@ -71,10 +71,7 @@ const employeeSlice = createSlice({
         state.error = action.payload || 'Failed to fetch employees.';
       });
 
-    // ==========================================
     // GET EMPLOYEE BY ID
-    // ==========================================
-
     builder
       .addCase(fetchEmployeeById.pending, (state) => {
         state.searchLoading = true;
@@ -94,10 +91,7 @@ const employeeSlice = createSlice({
         state.searchError = action.payload || 'Employee not found.';
       });
 
-    // ==========================================
     // ADD EMPLOYEE
-    // ==========================================
-
     builder
       .addCase(addEmployee.pending, (state) => {
         state.mutationLoading = true;
@@ -116,10 +110,7 @@ const employeeSlice = createSlice({
         state.mutationError = action.payload || 'Failed to add employee.';
       });
 
-    // ==========================================
     // UPDATE EMPLOYEE
-    // ==========================================
-
     builder
       .addCase(editEmployee.pending, (state) => {
         state.mutationLoading = true;
@@ -150,10 +141,7 @@ const employeeSlice = createSlice({
         state.mutationError = action.payload || 'Failed to update employee.';
       });
 
-    // ==========================================
     // DELETE EMPLOYEE
-    // ==========================================
-
     builder
       .addCase(removeEmployee.pending, (state) => {
         state.mutationLoading = true;
