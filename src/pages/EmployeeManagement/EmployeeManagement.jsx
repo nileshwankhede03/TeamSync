@@ -129,31 +129,6 @@ const EmployeeManagement = () => {
     }
   };
 
-  const handleEditEmployee = async (formData) => {
-    if (!selectedEmployee?.id) return;
-
-    try {
-      await dispatch(
-        editEmployee({
-          id: selectedEmployee.id,
-          payload: formData,
-        }),
-      ).unwrap();
-
-      toast.success('Employee updated successfully.');
-
-      setIsEditOpen(false);
-      dispatch(clearSelectedEmployee());
-    } catch (error) {
-      console.error('Edit employee failed:', error);
-      toast.error(
-        typeof error === 'string'
-          ? error
-          : 'Failed to update employee. Please try again.',
-      );
-    }
-  };
-
   const handleOpenDelete = (employee) => {
     setEmployeeToDelete(employee);
     openDeleteModal();
