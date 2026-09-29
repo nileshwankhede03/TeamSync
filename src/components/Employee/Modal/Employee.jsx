@@ -62,7 +62,6 @@ const Employee = ({
 
     setStates(countryStates);
 
-    // State change hone par district reset
     setDistricts([]);
 
     setFormData((prev) => ({
@@ -147,7 +146,6 @@ const Employee = ({
   useEffect(() => {
     if (!isOpen) return;
 
-    // ADD MODE
     if (mode === 'add') {
       setFormData(initialFormData);
       setStates([]);
@@ -156,21 +154,15 @@ const Employee = ({
       return;
     }
 
-    // EDIT MODE
     if (mode === 'edit' && employee) {
       const countryName = employee.country || '';
 
-      // Example:
-      // Benin -> BJ
       const countryCode = getCountryCode(countryName);
 
-      // Get states of selected country
       const countryStates = State.getStatesOfCountry(countryCode);
 
       setStates(countryStates);
 
-      // API gives state ISO code
-      // Example: "AQ"
       const employeeState = employee.state || '';
 
       const selectedState = countryStates.find(
@@ -179,14 +171,12 @@ const Employee = ({
 
       const stateCode = selectedState?.isoCode || '';
 
-      // Get districts/cities of selected state
       const stateDistricts = stateCode
         ? City.getCitiesOfState(countryCode, stateCode)
         : [];
 
       setDistricts(stateDistricts);
 
-      // Find district by name
       const selectedDistrict = stateDistricts.find(
         (district) =>
           district.name.toLowerCase() ===
