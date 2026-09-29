@@ -282,30 +282,30 @@ const EmployeeManagement = () => {
                   ) : (
                     displayedEmployees.map((employee) => (
                       <TableRow
-                        key={employee.id}
+                        key={employee?.id}
                         className="border-b border-[#EDF0F3] last:border-b-0 hover:bg-[#FAFBFC]"
                       >
                         <TableCell className="whitespace-nowrap px-5 py-3.5">
                           <span className="text-[14px] font-normal text-[#344054]">
-                            {employee.name || '--'}
+                            {employee?.name || '--'}
                           </span>
                         </TableCell>
 
                         <TableCell className="whitespace-nowrap px-5 py-3.5">
                           <span className="text-[14px] font-normal text-[#344054]">
-                            {employee.email || '--'}
+                            {employee?.email || '--'}
                           </span>
                         </TableCell>
 
                         <TableCell className="whitespace-nowrap px-5 py-3.5">
                           <span className="text-[14px] font-normal text-[#344054]">
-                            {employee.mobile || '--'}
+                            {employee?.mobile || '--'}
                           </span>
                         </TableCell>
 
                         <TableCell className="whitespace-nowrap px-5 py-3.5">
                           <span className="text-[14px] font-normal text-[#344054]">
-                            {employee.country || '--'}
+                            {employee?.country || '--'}
                           </span>
                         </TableCell>
 
@@ -313,7 +313,7 @@ const EmployeeManagement = () => {
                           <div className="flex items-center justify-center gap-2">
                             <button
                               type="button"
-                              aria-label={`Edit ${employee.name}`}
+                              aria-label={`Edit ${employee?.name}`}
                               onClick={() => handleOpenEdit(employee)}
                               disabled={mutationLoading}
                               className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E3E6EB] bg-white text-[#667085] transition hover:bg-[#F8F9FA] focus:outline-none focus:ring-2 focus:ring-[#354075]/20"
@@ -323,7 +323,7 @@ const EmployeeManagement = () => {
 
                             <button
                               type="button"
-                              aria-label={`Delete ${employee.name}`}
+                              aria-label={`Delete ${employee?.name}`}
                               onClick={() => handleOpenDelete(employee)}
                               disabled={mutationLoading}
                               className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E3E6EB] bg-white text-[#667085] transition hover:bg-[#FEF3F2] hover:text-[#D92D20] focus:outline-none focus:ring-2 focus:ring-[#D92D20]/20"
