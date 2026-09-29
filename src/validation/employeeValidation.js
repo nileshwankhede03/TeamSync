@@ -1,3 +1,5 @@
+import { isValidPhoneNumber } from 'react-phone-number-input';
+
 export const validateEmployeeForm = (formData) => {
   const errors = {};
 
@@ -21,10 +23,10 @@ export const validateEmployeeForm = (formData) => {
     errors.email = 'Email must not exceed 100 characters';
   }
 
-  if (!mobile) {
+  if (!formData.mobile) {
     errors.mobile = 'Mobile number is required';
-  } else if (!/^\d{10}$/.test(mobile)) {
-    errors.mobile = 'Mobile number must be 10 digits';
+  } else if (!isValidPhoneNumber(formData.mobile)) {
+    errors.mobile = 'Enter a valid mobile number';
   }
 
   if (!formData.country) {

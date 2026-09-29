@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import { Modal } from '@src/utils/ui/modal';
 import Button from '@src/utils/ui/button/Button';
 import Input from '@src/components/form/input/InputField';
@@ -266,24 +267,21 @@ const Employee = ({
               <Label htmlFor="mobile">
                 Mobile <span className="text-error-500">*</span>
               </Label>
-
-              <Input
-                id="mobile"
-                name="mobile"
-                type="tel"
+              <PhoneInput
+                international
+                defaultCountry="IN"
+                countryCallingCodeEditable={false}
                 placeholder="Enter mobile number"
                 value={formData.mobile}
-                onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, '');
-
-                  if (value.length <= 10) {
-                    handleChange('mobile', value);
-                  }
-                }}
-                maxLength={10}
-                error={!!errors.mobile}
-                hint={errors.mobile}
+                onChange={(value) => handleChange('mobile', value || '')}
+                className={`phone-input ${
+                  errors.mobile ? 'phone-input-error' : ''
+                }`}
               />
+
+              {errors.mobile && (
+                <p className="mt-1.5 text-xs text-error-500">{errors.mobile}</p>
+              )}
             </div>
 
             {/* Country */}
